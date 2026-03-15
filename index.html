@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Music Bots</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:#050505;
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+/* HUJAN */
+
+.rain{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+pointer-events:none;
+}
+
+.drop{
+position:absolute;
+width:2px;
+height:20px;
+background:rgba(255,255,255,0.4);
+animation:rain linear infinite;
+}
+
+@keyframes rain{
+0%{transform:translateY(-100px)}
+100%{transform:translateY(100vh)}
+}
+
+/* PETIR */
+
+.lightning{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:white;
+opacity:0;
+pointer-events:none;
+}
+
+.flash{
+animation:flash 0.4s;
+}
+
+@keyframes flash{
+0%{opacity:0}
+30%{opacity:0.8}
+100%{opacity:0}
+}
+
+/* PARTICLE */
+
+.stars{
+position:fixed;
+width:100%;
+height:100%;
+top:0;
+left:0;
+}
+
+.star{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+opacity:0.5;
+animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+from{opacity:0.2}
+to{opacity:1}
+}
+
+/* LOGO */
+
+.logo{
+margin-top:80px;
+}
+
+.logo img{
+width:150px;
+border-radius:50%;
+box-shadow:0 0 40px #5865F2;
+animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
+100%{transform:translateY(0)}
+}
+
+.title{
+font-size:30px;
+font-weight:bold;
+margin-top:20px;
+}
+
+.subtitle{
+opacity:0.7;
+margin-top:5px;
+}
+
+/* BUTTON GRID */
+
+.container{
+max-width:800px;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+padding:40px;
+}
+
+.invite{
+padding:15px;
+border-radius:40px;
+text-decoration:none;
+color:white;
+font-weight:bold;
+transition:0.3s;
+}
+
+.invite:hover{
+transform:scale(1.1);
+box-shadow:0 0 20px rgba(255,255,255,0.5);
+}
+
+/* WARNA BOT */
+
+.b1{background:#e74c3c}
+.b2{background:#1abc9c}
+.b3{background:#e84393}
+.b4{background:#e67e22}
+.b5{background:#3498db}
+.b6{background:#9b59b6}
+.b7{background:#f1c40f;color:black}
+.b8{background:#2ecc71}
+.b9{background:#16a085}
+.b10{background:#34495e}
+
+footer{
+margin-top:20px;
+opacity:0.6;
+padding-bottom:30px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="rain" id="rain"></div>
+<div class="stars" id="stars"></div>
+<div class="lightning" id="lightning"></div>
+
+<div class="logo">
+<img src="https://i.imgur.com/6V5QIgg.jpeg">
+</div>
+
+<div class="title">Gondezz BOT 24/7</div>
+<div class="subtitle">Invite One Of 10 Bots</div>
+
+<div class="container">
+
+<a class="invite b1" href="https://discord.com/oauth2/authorize?client_id=1481703480748933271&permissions=8&integration_type=0&scope=bot+applications.commands">Invite Bot 1</a>
+<a class="invite b2" href="https://discord.com/oauth2/authorize?client_id=1481720137689075832&permissions=8&integration_type=0&scope=bot+applications.commands">Invite Bot 2</a>
+<a class="invite b3" href="https://discord.com/oauth2/authorize?client_id=1481727496507621487&permissions=8&integration_type=0&scope=bot+applications.commands">Invite Bot 3</a>
+<a class="invite b4" href="https://discord.com/oauth2/authorize?client_id=1481727900267843604&permissions=8&integration_type=0&scope=bot+applications.commands">Invite Bot 4</a>
+<a class="invite b5" href="https://discord.com/oauth2/authorize?client_id=1482537159654379540&permissions=8&integration_type=0&scope=bot+applications.commands">Invite Bot 5</a>
+<a class="invite b6" href="https://discord.com/oauth2/authorize?client_id=1482537324226154689&permissions=8&integration_type=0&scope=bot+applications.commands">Invite Bot 6</a>
+<a class="invite b7" href="https://discord.com/oauth2/authorize?client_id=1482537428706394310&permissions=8&integration_type=0&scope=bot+applications.commands">Invite Bot 7</a>
+<a class="invite b8" href="https://discord.com/oauth2/authorize?client_id=1482537527352103034&permissions=8&integration_type=0&scope=bot+applications.commands">Invite Bot 8</a>
+<a class="invite b9" href="https://discord.com/oauth2/authorize?client_id=1482537638425792742&permissions=8&integration_type=0&scope=bot+applications.commands">Invite Bot 9</a>
+<a class="invite b10" href="https://discord.com/oauth2/authorize?client_id=1482537816058626130&permissions=8&integration_type=0&scope=bot+applications.commands">Invite Bot 10</a>
+
+</div>
+
+<footer>
+© 2026 Discord Bots
+</footer>
+
+<script>
+
+/* HUJAN */
+
+function createRain(){
+let rain=document.getElementById("rain")
+
+for(let i=0;i<150;i++){
+
+let drop=document.createElement("div")
+
+drop.className="drop"
+
+drop.style.left=Math.random()*100+"%"
+drop.style.animationDuration=(0.5+Math.random())+"s"
+drop.style.top=Math.random()*100+"%"
+
+rain.appendChild(drop)
+
+}
+}
+
+createRain()
+
+/* BINTANG */
+
+function createStars(){
+let stars=document.getElementById("stars")
+
+for(let i=0;i<100;i++){
+
+let star=document.createElement("div")
+
+star.className="star"
+
+star.style.left=Math.random()*100+"%"
+star.style.top=Math.random()*100+"%"
+
+stars.appendChild(star)
+
+}
+}
+
+createStars()
+
+/* PETIR RANDOM */
+
+function lightning(){
+
+let flash=document.getElementById("lightning")
+
+flash.classList.add("flash")
+
+setTimeout(()=>{
+flash.classList.remove("flash")
+},400)
+
+}
+
+setInterval(lightning,8000)
+
+</script>
+
+</body>
+</html>
